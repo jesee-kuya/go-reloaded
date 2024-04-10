@@ -5,6 +5,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"unicode"
 
 	"goreloaded"
 )
@@ -23,16 +24,20 @@ func main() {
 	content := strings.Split(string(file), " ")
 	fmt.Println(content)
 	check := goreloaded.Cap(content)
-	newContent1 := strings.Split(check, " ")
+	newContent1 := strings.Fields(check)
 	check1 := goreloaded.Up(newContent1)
-	newContent2 := strings.Split(check1, " ")
+	newContent2 := strings.Fields(check1)
 	check2 := goreloaded.Low(newContent2)
-	newContent3 := strings.Split(check2, " ")
+	newContent3 := strings.Fields(check2)
 	check3 := goreloaded.Hex(newContent3)
-	newContent4 := strings.Split(check3, " ")
+	newContent4 := strings.Fields(check3)
 	check4 := goreloaded.Bin(newContent4)
 	newCheck4 := test.ReplaceAllString(check4, "")
-	newContent5 := strings.Split(newCheck4, " ")
-	check5 := goreloaded.Punctuate(newContent5)
-	fmt.Println(check5)
+	newContent5 := strings.Fields(newCheck4)
+	for _, v := range newCheck4 {
+		if unicode.IsPunct(v) {
+			check4 = goreloaded.Punctuate(newContent5)
+		}
+	}
+	fmt.Println(check4)
 }
