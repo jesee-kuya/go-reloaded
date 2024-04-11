@@ -60,6 +60,6 @@ func main() {
 	content = strings.Fields(newContent)
 	newContent = goreloaded.Vowel(content)
 	test1 := regexp.MustCompile(`('\s*)(.*?)(\s*')`)
-	newContent = test1.ReplaceAllString(newContent, " '$2' ")
+	newContent = test1.ReplaceAllString(newContent, " '$2'")
 	fmt.Println(newContent)
 }
