@@ -39,5 +39,12 @@ func main() {
 			check4 = goreloaded.Punctuate(newContent5)
 		}
 	}
-	fmt.Println(check4)
+
+	test1 := regexp.MustCompile(`'\s*([^']+)'`)
+	check5 := test1.ReplaceAllString(check4, " '$1'")
+
+	fmt.Println(check5)
+	newContent6 := strings.Fields(check5)
+	check6 := goreloaded.Vowel(newContent6)
+	fmt.Println(check6)
 }
