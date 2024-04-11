@@ -6,7 +6,7 @@ func Punctuate(str []string) string {
 	var punctuation string
 	for i, v := range str {
 		for _, val := range v {
-			if val == '.' || val == '!' || val == '?' || val == ',' || val == ':' || val == '\'' {
+			if val == '.' || val == '!' || val == '?' || val == ',' || val == ':' {
 				punctuation += string(val)
 			}
 			if string(v[0]) == punctuation {

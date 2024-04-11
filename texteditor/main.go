@@ -19,32 +19,47 @@ func main() {
 		fmt.Println("Could not read the file", err)
 	}
 
-	test := regexp.MustCompile(`\(\w+,\s\d+\)`)
+	content := strings.Fields(string(file))
+	var newContent string
+	newContent = goreloaded.Vowel(content)
+	content = strings.Fields(newContent)
 
-	content := strings.Split(string(file), " ")
-	fmt.Println(content)
-	check := goreloaded.Cap(content)
-	newContent1 := strings.Fields(check)
-	check1 := goreloaded.Up(newContent1)
-	newContent2 := strings.Fields(check1)
-	check2 := goreloaded.Low(newContent2)
-	newContent3 := strings.Fields(check2)
-	check3 := goreloaded.Hex(newContent3)
-	newContent4 := strings.Fields(check3)
-	check4 := goreloaded.Bin(newContent4)
-	newCheck4 := test.ReplaceAllString(check4, "")
-	newContent5 := strings.Fields(newCheck4)
-	for _, v := range newCheck4 {
-		if unicode.IsPunct(v) {
-			check4 = goreloaded.Punctuate(newContent5)
+	for _, v := range content {
+		if v == "(cap)" || v == "(cap," {
+			newContent = goreloaded.Cap(content)
+			test := regexp.MustCompile(`\(cap,\s\d+\)`)
+			newContent = test.ReplaceAllString(newContent, "")
+			content = strings.Fields(newContent)
+		} else if v == "(up)" || v == "(up," {
+			newContent = goreloaded.Up(content)
+			test := regexp.MustCompile(`\(up,\s\d+\)`)
+			newContent = test.ReplaceAllString(newContent, "")
+			content = strings.Fields(newContent)
+		} else if v == "(low)" || v == "(low," {
+			newContent = goreloaded.Low(content)
+			test := regexp.MustCompile(`\(low,\s+\d+\)`)
+			newContent = test.ReplaceAllString(newContent, "")
+			content = strings.Fields(newContent)
+		} else if v == "(hex)" {
+			newContent = goreloaded.Hex(content)
+			content = strings.Fields(newContent)
+		} else if v == "(bin)" {
+			newContent = goreloaded.Bin(content)
+			content = strings.Fields(newContent)
 		}
 	}
 
-	test1 := regexp.MustCompile(`'\s*([^']+)'`)
-	check5 := test1.ReplaceAllString(check4, " '$1'")
+	content = strings.Fields(newContent)
+	for _, v := range newContent {
+		if unicode.IsPunct(v) {
+			newContent = goreloaded.Punctuate(content)
+		}
+	}
 
-	fmt.Println(check5)
-	newContent6 := strings.Fields(check5)
-	check6 := goreloaded.Vowel(newContent6)
-	fmt.Println(check6)
+	fmt.Println(newContent)
+	content = strings.Fields(newContent)
+	newContent = goreloaded.Vowel(content)
+	test1 := regexp.MustCompile(`('\s*)(.*?)(\s*')`)
+	newContent = test1.ReplaceAllString(newContent, " '$2' ")
+	fmt.Println(newContent)
 }
