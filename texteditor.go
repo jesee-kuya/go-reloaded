@@ -22,17 +22,17 @@ func TextEditor(newContent string) string {
 	for _, v := range content {
 		if v == "(cap)" || v == "(cap," {
 			newContent = Cap(content)
-			test := regexp.MustCompile(`\(cap,\s\d+\)`)
+			test := regexp.MustCompile(`\(cap,\s*\d+\s*\)`)
 			newContent = test.ReplaceAllString(newContent, "")
 			content = strings.Fields(newContent)
 		} else if v == "(up)" || v == "(up," {
 			newContent = Up(content)
-			test := regexp.MustCompile(`\(up,\s\d+\)`)
+			test := regexp.MustCompile(`\(up,\s*\d+\s*\)`)
 			newContent = test.ReplaceAllString(newContent, "")
 			content = strings.Fields(newContent)
 		} else if v == "(low)" || v == "(low," {
 			newContent = Low(content)
-			test := regexp.MustCompile(`\(low,\s+\d+\)`)
+			test := regexp.MustCompile(`\(low,\s*\d+\s*\)`)
 			newContent = test.ReplaceAllString(newContent, "")
 			content = strings.Fields(newContent)
 		} else if v == "(hex)" {
