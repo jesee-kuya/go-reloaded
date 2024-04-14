@@ -1,6 +1,7 @@
 package goreloaded
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -28,10 +29,15 @@ func Cap(str []string) string {
 				}
 				num, _ := strconv.Atoi(n)
 
-				for a := num; a > 0; a-- {
-					b := i - a
-					newStr[b] = Capitalize(newStr[b])
+				if num < len(newStr) {
+					for a := num; a > 0; a-- {
+						b := i - a
+						newStr[b] = Capitalize(newStr[b])
+					}
+				} else {
+					fmt.Println("The specified format index for cap is larger than the length of the string")
 				}
+
 			}
 			n = ""
 		}
