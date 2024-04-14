@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// low searches for any occurence of (low) or (low, number)
+// Low returns a string with the previous value changed to lowercase.
 func Low(str []string) string {
 	var newStr []string
 	var n string

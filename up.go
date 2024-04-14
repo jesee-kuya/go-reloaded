@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Up searches for all occurences
 func Up(str []string) string {
 	var newStr []string
 	var n string

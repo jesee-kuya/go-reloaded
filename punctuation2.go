@@ -2,6 +2,7 @@ package goreloaded
 
 import "strings"
 
+// Punctuate returns a string which is correctly puctuated.
 func Punctuate2(str []string) string {
 	var punctuation string
 	for i, v := range str {

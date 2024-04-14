@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// cap returns a string with capitalized words after every occurence of (cap) or (cap, number)
+
 func Cap(str []string) string {
 	var newStr []string
 	var n string

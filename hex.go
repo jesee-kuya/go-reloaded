@@ -5,6 +5,10 @@ import (
 	"strings"
 )
 
+// Hex searches for any occurence of (hex) in a slice of strings
+// It then converts the previous value from a hexadecimal number to a decimal
+// every word before the occurence of hex should be a hexadecimal number
+
 func Hex(str []string) string {
 	var newStr []string
 	var new int64

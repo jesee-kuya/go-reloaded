@@ -1,5 +1,6 @@
 package goreloaded
 
+// Capitalize returns a string with the first letter as an uppercase letter
 func Capitalize(str string) string {
 	newStr := ""
 	for i, v := range str {

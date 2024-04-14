@@ -5,6 +5,11 @@ import (
 	"strings"
 )
 
+// The Bin function searches for any occurence of (bin) in a slice of strings
+// It then converts the previous slice value from binary to decimal
+// Every word before bin should be a binary number
+// Bin returns a string
+
 func Bin(str []string) string {
 	var newStr []string
 	for i, v := range str {

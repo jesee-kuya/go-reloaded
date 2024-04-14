@@ -6,6 +6,7 @@ import (
 	"unicode"
 )
 
+// TextEditor returns a string that has been formated removing all format string
 func TextEditor(newContent string) string {
 	content := strings.Fields(newContent)
 	for _, v := range newContent {
