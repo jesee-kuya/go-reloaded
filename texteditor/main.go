@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"goreloaded"
 )
@@ -17,8 +16,7 @@ func main() {
 		fmt.Println("Could not read the file", err)
 	}
 
-	content := strings.Fields(string(file))
-	newContent := goreloaded.Vowel(content)
+	newContent := string(file)
 	newContent = goreloaded.TextEditor(newContent)
 
 	err = os.WriteFile(toFile, []byte(newContent), 0o644)

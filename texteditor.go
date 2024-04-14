@@ -47,5 +47,7 @@ func TextEditor(newContent string) string {
 			newContent = Punctuate2(content)
 		}
 	}
+	content = strings.Fields(newContent)
+	newContent = Vowel(content)
 	return newContent
 }
