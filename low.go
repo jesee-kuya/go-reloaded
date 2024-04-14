@@ -34,8 +34,8 @@ func Low(str []string) string {
 						b := i - a
 						newStr[b] = strings.ToLower(newStr[b])
 					}
-				}else {
-					fmt.Println("The specified format index for low is larger than the length of the string")
+				} else {
+					fmt.Printf("The specified format index %d for low is larger than the length of the words before %d\n", num, i)
 				}
 
 			}

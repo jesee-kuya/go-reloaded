@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Up searches for all occurences
+// Up returns a string with uppercase letters after every occurences of (up) and (up, format index)
 func Up(str []string) string {
 	var newStr []string
 	var n string
@@ -28,13 +28,13 @@ func Up(str []string) string {
 				}
 				num, _ := strconv.Atoi(n)
 
-				if num < len(newStr) {
+				if num < i {
 					for a := num; a > 0; a-- {
 						b := i - a
 						newStr[b] = strings.ToUpper(newStr[b])
 					}
 				} else {
-					fmt.Println("The specified format index for up is larger than the length of the string")
+					fmt.Printf("The specified format index %d for up is larger than the length of the words before %d\n", num, i)
 				}
 
 			}

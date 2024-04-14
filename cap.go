@@ -35,7 +35,7 @@ func Cap(str []string) string {
 						newStr[b] = Capitalize(newStr[b])
 					}
 				} else {
-					fmt.Println("The specified format index for cap is larger than the length of the string")
+					fmt.Printf("The specified format index %d for cap is larger than the length of the words before %d\n", num, i)
 				}
 
 			}
