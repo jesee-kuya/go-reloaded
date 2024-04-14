@@ -8,6 +8,13 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 3 {
+		fmt.Println("Not enough arguments, try again")
+		return
+	} else if len(os.Args) > 3 {
+		fmt.Println("More arguments than required, try again")
+		return
+	}
 	sourceFile := os.Args[1]
 	toFile := os.Args[2]
 
