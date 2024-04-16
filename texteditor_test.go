@@ -11,7 +11,7 @@ var testcases = []struct {
 	expected string
 	got      string
 }{
-	{"(hex)", "30 files were added", "1E (hex) files were added"},
+	{"(hex)", "30 files were added", "1e (hex) files were added"},
 	{"(bin)", "It has been 2 years", "It has been 10 (bin) years"},
 	{"(up)", "Ready, set, GO!", "Ready, set, go (up)!"},
 	{"(low)", "I should stop shouting", "I should stop SHOUTING (low)"},
