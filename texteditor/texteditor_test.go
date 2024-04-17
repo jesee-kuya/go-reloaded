@@ -3,7 +3,7 @@ package goreloaded_test
 import (
 	"testing"
 
-	"goreloaded"
+	goreloaded "goreloaded/texteditor"
 )
 
 var testcases = []struct {
