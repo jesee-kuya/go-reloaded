@@ -29,7 +29,7 @@ func Low(str []string) string {
 				}
 				num, _ := strconv.Atoi(n)
 
-				if num < len(newStr) {
+				if num < i {
 					for a := num; a > 0; a-- {
 						b := i - a
 						newStr[b] = strings.ToLower(newStr[b])

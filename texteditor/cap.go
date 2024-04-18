@@ -29,14 +29,9 @@ func Cap(str []string) string {
 				}
 				num, _ := strconv.Atoi(n)
 
-				if num < len(newStr) {
+				if num < i {
 					if num > 0 {
 						for a := num; a > 0; a-- {
-							b := i - a
-							newStr[b] = Capitalize(newStr[b])
-						}
-					} else if num < 0 {
-						for a := num; a > 0; a++ {
 							b := i - a
 							newStr[b] = Capitalize(newStr[b])
 						}
