@@ -36,6 +36,7 @@ func Low(str []string) string {
 					}
 				} else {
 					fmt.Printf("The specified format index %d for low is larger than the length of the words before %d\n", num, i)
+					break
 				}
 
 			}
